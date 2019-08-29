@@ -64,7 +64,8 @@ def build_vocab(train_dir, vocab_dir, vocab_size=5000):
         all_data.extend(content)
 
     counter = Counter(all_data)
-    count_pairs = counter.most_common(vocab_size - 1)
+    count_pairs = counter.most_common(vocab_size - 1)  #
+    #返回一个TopN列表。如果n没有被指定，则返回所有元素。当多个元素计数值相同时，排列是无确定顺序的
     words, _ = list(zip(*count_pairs))
     # 添加一个 <PAD> 来将所有文本pad为同一长度
     words = ['<PAD>'] + list(words)
