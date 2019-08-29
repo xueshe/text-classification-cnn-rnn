@@ -33,6 +33,7 @@ class TextCNN(object):
 
         # 三个待输入的数据
         self.input_x = tf.placeholder(tf.int32, [None, self.config.seq_length], name='input_x')
+        # 传入列为60，行不确定的张量，只做声明，不占用内存。等建立session，在会话中，运行模型的时候通过feed_dict()函数向占位符喂入数据。
         self.input_y = tf.placeholder(tf.float32, [None, self.config.num_classes], name='input_y')
         self.keep_prob = tf.placeholder(tf.float32, name='keep_prob')
 
